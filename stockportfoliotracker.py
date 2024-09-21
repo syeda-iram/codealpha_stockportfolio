@@ -68,7 +68,7 @@ def plot_stock(symbol):
     closing_prices = [float(time_series[time]["4. close"]) for time in times]
     
     # Plot the data
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(30, 5))
     plt.plot(times, closing_prices, label=f'{symbol} Stock Price')
     plt.xlabel('Time')
     plt.ylabel('Price')
