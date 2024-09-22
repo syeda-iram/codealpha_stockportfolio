@@ -29,14 +29,17 @@ def remove_stock(symbol):
         print(f"{symbol} not found in portfolio.")
         
 def calculate_performance(symbol):
-    current_price = get_stock_price(symbol)
-    shares = portfolio[symbol]["shares"]
-    buy_price = portfolio[symbol]["buy_price"]
-    current_value = shares * current_price
-    purchase_value = shares * buy_price
-    profit_loss = current_value - purchase_value
-    print(f"Current value: {current_value}, Profit/Loss: {profit_loss}")
-    
+    if symbol in portfolio:
+        current_price = get_stock_price(symbol)
+        shares = portfolio[symbol]["shares"]
+        buy_price = portfolio[symbol]["buy_price"]
+        current_value = shares * current_price
+        purchase_value = shares * buy_price
+        profit_loss = current_value - purchase_value
+        print(f"Current value: {current_value}, Profit/Loss: {profit_loss}")
+    else:
+        print(f"{symbol} not found in portfolio.")
+        
 def view_portfolio():
     for symbol in portfolio:
         current_price = get_stock_price(symbol)
